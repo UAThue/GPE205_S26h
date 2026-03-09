@@ -1,0 +1,66 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+
+public class PlayerController : Controller
+{
+    private InputAction moveAction;
+    private InputAction shootAction;
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public override void Start()
+    {
+        // Load from the global actions
+        moveAction = InputSystem.actions.FindAction("Move");
+        shootAction = InputSystem.actions.FindAction("Attack");
+
+        // Do everything that the parent class does!
+        base.Start();
+    }
+
+    // Update is called once per frame
+    public override void Update()
+    {
+        // Because we are a player controller, we need to process inputs from the player
+        ProcessInputs();
+
+        // Do everything that the parent class does!
+        base.Update();
+    }
+
+    private void ProcessInputs()
+    {
+
+        Vector2 moveValue = moveAction.ReadValue<Vector2>();
+
+        if ( moveAction.IsPressed() ) {
+
+            // Move Forward/Backward
+            if (moveValue.y >= 0.5f) {
+                pawn.MoveForward();
+            }
+            else if (moveValue.y <= -0.5f) {
+                pawn.MoveBackward();
+            }
+
+            // Handle turns
+            if (moveValue.x >= 0.5f) {
+                pawn.TurnClockwise();
+            } else if (moveValue.x <= -0.5f) {
+                pawn.TurnCounterClockwise();
+            }
+        }
+
+
+
+
+        // Shoot
+        if ( shootAction.IsPressed() ) {
+            // Shoot
+        }
+
+    }
+
+
+}
