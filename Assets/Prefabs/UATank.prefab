@@ -55,5 +55,100 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1026914415785273838}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1413079673611740650}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8941482927661438380}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3833951789355864367}
   m_SourcePrefab: {fileID: 100100000, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+--- !u!1 &3169586147453826459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+  m_PrefabInstance: {fileID: 2827636177467001034}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026914415785273838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2d01203510f714db5e9f73c4d456ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankPawn
+  turnSpeed: 180
+  moveSpeed: 10
+  controller: {fileID: 0}
+  mover: {fileID: 0}
+--- !u!114 &1413079673611740650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c166b3191c3181e44a6ca44274fd53d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankMover
+--- !u!54 &8941482927661438380
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &3833951789355864367
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.7887652
+  m_Height: 1.0275304
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.7, z: 0}

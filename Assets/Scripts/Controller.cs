@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Controller : MonoBehaviour
 {
-    public Pawn pawn;
+    [HideInInspector] public Pawn pawn;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()
@@ -14,6 +14,12 @@ public abstract class Controller : MonoBehaviour
     public virtual void Update()
     {
         
+    }
+
+    // On Destroy runs when the object is destroyed
+    public virtual void OnDestroy()
+    {
+
     }
 
     public virtual void Possess(Pawn pawnToPosses)
