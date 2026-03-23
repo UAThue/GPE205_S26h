@@ -20,6 +20,17 @@ public class TankMover : Mover
         base.Update();
     }
 
+    public override void Seek (Vector3 target, float moveSpeed, float turnSpeed)
+    {
+        // Rotate a little towards the target
+        Vector3 vectorToTarget = target - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(vectorToTarget, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, turnSpeed * Time.deltaTime);
+
+        // Move forward
+        Move(transform.forward, moveSpeed);
+    }
+
     public override void Move(Vector3 moveDirection, float moveSpeed)
     {
         // Find a vector that is "move speed" in "move direction"

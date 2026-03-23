@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4830208455008395892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9170901106190480331}
+  m_Layer: 0
+  m_Name: ShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9170901106190480331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830208455008395892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.55, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2357477596902174497}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2827636177467001034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49,12 +80,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
       propertyPath: m_Name
       value: UATank
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9170901106190480331}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
       insertIndex: 1
@@ -68,7 +106,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3833951789355864367}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 362486912012954900}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3940193899637129845}
   m_SourcePrefab: {fileID: 100100000, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+--- !u!4 &2357477596902174497 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+  m_PrefabInstance: {fileID: 2827636177467001034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3169586147453826459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
@@ -90,6 +139,12 @@ MonoBehaviour:
   moveSpeed: 10
   controller: {fileID: 0}
   mover: {fileID: 0}
+  shooter: {fileID: 0}
+  projectile: {fileID: 2900086122077790824, guid: 25b8b559f0ec08a4b87a6cb914a16ff8, type: 3}
+  fireForce: 1000
+  damageDone: 1
+  bulletLifespan: 1.5
+  shotsPerSecond: 4
 --- !u!114 &1413079673611740650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,3 +207,31 @@ CapsuleCollider:
   m_Height: 1.0275304
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
+--- !u!114 &362486912012954900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e5a6d547db0fdc4cba75dfd02880198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  maxHealth: 0
+  currentHealth: 0
+  isMaxHealthOnStart: 0
+--- !u!114 &3940193899637129845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 813f397397fffb94ea86d69ffea228e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TankShooter
+  shootPosition: {fileID: 9170901106190480331}

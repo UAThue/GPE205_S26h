@@ -3,13 +3,23 @@ using UnityEngine;
 [RequireComponent(typeof(Mover))]
 public class TankPawn : Pawn
 {
-    [HideInInspector] public Mover mover;    
+    [HideInInspector] public Mover mover;
+    [HideInInspector] public Shooter shooter;
+    [Header("Shooting Data")]
+    public Projectile projectile;
+    public float fireForce;
+    public float damageDone;
+    public float bulletLifespan;
+    public float shotsPerSecond;
+    private float nextShotTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
-        // TODO: This is where we put anything that only the TankPawn does
+        // This is where we put anything that only the TankPawn does
         mover = GetComponent<Mover>();
+        shooter = GetComponent<Shooter>();
+        nextShotTime = Time.time;
 
         // Do what all Pawns do
         base.Start();
@@ -43,7 +53,16 @@ public class TankPawn : Pawn
         mover.Turn(-1, turnSpeed);
     }
 
-
+    public override void Shoot ()
+    {
+        // If it is time to shoot
+        if (Time.time >= nextShotTime) {
+            // Shoot
+            shooter.Shoot(projectile, fireForce, damageDone, bulletLifespan);
+            // Set our next shot time
+            nextShotTime = Time.time + (1 / shotsPerSecond);
+        }
+    }
 
 
 

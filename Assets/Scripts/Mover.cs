@@ -12,6 +12,11 @@ public abstract class Mover : MonoBehaviour
 
     }
 
+    public virtual void Seek(Vector3 targetPosition, float moveSpeed, float turnSpeed)
+    {
+        
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Move(Vector3 moveDirection, float moveSpeed)
     {

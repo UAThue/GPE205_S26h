@@ -2,6 +2,7 @@ using UnityEngine;
 
 public abstract class Pawn : MonoBehaviour
 {
+    [Header("Movement Data")]
     public float turnSpeed = 180;
     public float moveSpeed = 10;
 
@@ -37,4 +38,5 @@ public abstract class Pawn : MonoBehaviour
     public abstract void MoveBackward();
     public abstract void TurnClockwise();
     public abstract void TurnCounterClockwise();
+    public abstract void Shoot();
 }

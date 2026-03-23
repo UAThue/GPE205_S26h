@@ -77,6 +77,7 @@ public class PlayerController : Controller
         // Shoot
         if ( shootAction.IsPressed() ) {
             // Shoot
+            pawn.Shoot();
         }
 
     }
