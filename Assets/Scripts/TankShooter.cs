@@ -3,10 +3,12 @@ using UnityEngine;
 public class TankShooter : Shooter
 {
     public Transform shootPosition;
+    public Pawn owner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
+        owner = GetComponent<Pawn>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class TankShooter : Shooter
         if (newDOH != null) 
         {
             newDOH.damageDone = damageDone;
+            newDOH.owner = owner;
         }
         
         // Add Force

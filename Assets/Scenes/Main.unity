@@ -279,7 +279,7 @@ MonoBehaviour:
   playerController: {fileID: 5944723378998984780, guid: 0a832a283c2b0a34ab47a4b5a48739ec, type: 3}
   players: []
   pawns: []
-  camera: {fileID: 961739754}
+  followCamera: {fileID: 961739754}
 --- !u!4 &654020319
 Transform:
   m_ObjectHideFlags: 0
@@ -1343,6 +1343,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -58.047, y: 0, z: 0}
+--- !u!1001 &869572909651469379
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1327336577035004167, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: chaseDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327336577035004167, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: attackDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327336577035004167, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: backToPostDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47246954
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.1483291
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598574730556142975, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8944032885636247493, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
+      propertyPath: m_Name
+      value: Blinky
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0e267806aa6ffdf4685d9fd4e551e019, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1358,3 +1427,4 @@ SceneRoots:
   - {fileID: 2117878393}
   - {fileID: 1761682075}
   - {fileID: 1863086650}
+  - {fileID: 869572909651469379}

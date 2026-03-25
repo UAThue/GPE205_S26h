@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public List<PlayerController> players;
     public List<Pawn> pawns;
     [Header("Important Game Objects")]
-    public FollowCamera camera;
+    public FollowCamera followCamera;
 
     // Awake runs before Start runs
     void Awake()
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void SetFollowCamera (Transform target)
     {
         // Set the target
-        camera.target = target;
+        followCamera.target = target;
     }
 
     private void EndGame()

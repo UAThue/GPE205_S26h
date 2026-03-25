@@ -5,6 +5,7 @@ public class TankPawn : Pawn
 {
     [HideInInspector] public Mover mover;
     [HideInInspector] public Shooter shooter;
+    [HideInInspector] public Health health;
     [Header("Shooting Data")]
     public Projectile projectile;
     public float fireForce;
@@ -19,6 +20,7 @@ public class TankPawn : Pawn
         // This is where we put anything that only the TankPawn does
         mover = GetComponent<Mover>();
         shooter = GetComponent<Shooter>();
+        health = GetComponent<Health>();
         nextShotTime = Time.time;
 
         // Do what all Pawns do
@@ -53,7 +55,7 @@ public class TankPawn : Pawn
         mover.Turn(-1, turnSpeed);
     }
 
-    public override void Shoot ()
+    public override void Shoot()
     {
         // If it is time to shoot
         if (Time.time >= nextShotTime) {
@@ -64,6 +66,10 @@ public class TankPawn : Pawn
         }
     }
 
+    public override void Seek(Vector3 target)
+    {
+        mover.Seek(target, moveSpeed, turnSpeed);
+    }
 
 
 }

@@ -39,4 +39,5 @@ public abstract class Pawn : MonoBehaviour
     public abstract void TurnClockwise();
     public abstract void TurnCounterClockwise();
     public abstract void Shoot();
+    public abstract void Seek(Vector3 target);
 }

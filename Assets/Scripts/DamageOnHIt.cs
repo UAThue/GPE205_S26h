@@ -18,6 +18,13 @@ public class DamageOnHit : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        // If we shot ourselves, exit early
+        Pawn otherPawn = other.GetComponent<Pawn>();
+        if (otherPawn == owner) 
+        {
+            return;
+        }
+
         // Check to see if the other object has a health component!
         Health otherHealth = other.gameObject.GetComponent<Health>();
         if (otherHealth != null ) {
