@@ -6,13 +6,17 @@ public class TankPawn : Pawn
     [HideInInspector] public Mover mover;
     [HideInInspector] public Shooter shooter;
     [HideInInspector] public Health health;
+    [HideInInspector] public NoiseMaker noiseMaker;
     [Header("Shooting Data")]
     public Projectile projectile;
     public float fireForce;
     public float damageDone;
     public float bulletLifespan;
     public float shotsPerSecond;
+    public float shotVolume = 10.0f;
     private float nextShotTime;
+    [Header("Movement Data")]
+    public float moveVolume = 5.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
@@ -21,6 +25,7 @@ public class TankPawn : Pawn
         mover = GetComponent<Mover>();
         shooter = GetComponent<Shooter>();
         health = GetComponent<Health>();
+        noiseMaker = GetComponent<NoiseMaker>();
         nextShotTime = Time.time;
 
         // Do what all Pawns do
@@ -37,7 +42,10 @@ public class TankPawn : Pawn
 
     public override void MoveForward()
     {
-        mover.Move(transform.forward, moveSpeed);
+        if (mover != null)
+        {
+            mover.Move(transform.forward, moveSpeed);
+        }
     }
 
     public override void MoveBackward()

@@ -37,6 +37,13 @@ public class TankShooter : Shooter
             rb.AddForce(shootPosition.forward * fireForce); 
         }
 
+        // Make some noise
+        TankPawn ownerAsTank = owner as TankPawn;
+        if (ownerAsTank != null)
+        {
+            ownerAsTank.noiseMaker.MakeNoise(ownerAsTank.shotVolume);
+        }
+
         Destroy(newProjectile.gameObject, lifespan);
     }
 

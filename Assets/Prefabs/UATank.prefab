@@ -116,6 +116,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3940193899637129845}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6278415310247379841}
   m_SourcePrefab: {fileID: 100100000, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
 --- !u!4 &2357477596902174497 stripped
 Transform:
@@ -144,11 +147,15 @@ MonoBehaviour:
   controller: {fileID: 0}
   mover: {fileID: 0}
   shooter: {fileID: 0}
+  health: {fileID: 0}
+  noiseMaker: {fileID: 0}
   projectile: {fileID: 2900086122077790824, guid: 25b8b559f0ec08a4b87a6cb914a16ff8, type: 3}
   fireForce: 1000
   damageDone: 1
   bulletLifespan: 1.5
   shotsPerSecond: 4
+  shotVolume: 10
+  moveVolume: 5
 --- !u!114 &1413079673611740650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +246,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TankShooter
   shootPosition: {fileID: 9170901106190480331}
+  owner: {fileID: 0}
+--- !u!114 &6278415310247379841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f2574bb5e011b4db085599b1abf084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseMaker
+  noiseVolume: 0
+  noiseDecayPerSecond: 2.5

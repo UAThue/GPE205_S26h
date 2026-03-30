@@ -4,10 +4,14 @@ using UnityEngine;
 public class TankMover : Mover
 {
     private Rigidbody rb;
+    private TankPawn owner;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public override void Start()
     {
+        // Get the owner
+        owner = GetComponent<TankPawn>();
+
         // Get the rigidbody component
         rb = GetComponent<Rigidbody>();
         // Do what the parent class does
@@ -37,6 +41,11 @@ public class TankMover : Mover
         Vector3 moveVector = (moveDirection.normalized * (moveSpeed * Time.deltaTime));
         // Move to "our current position plus that vector" 
         rb.MovePosition(rb.position + moveVector);
+        // Make Noise
+        if (owner != null)
+        {
+            owner.noiseMaker.MakeNoise(owner.moveVolume);
+        }
     }
 
     public override void Turn (float turnDirection, float turnSpeed)
