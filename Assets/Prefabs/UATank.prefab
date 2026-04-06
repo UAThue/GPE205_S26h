@@ -119,6 +119,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6278415310247379841}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2289538241637892064}
   m_SourcePrefab: {fileID: 100100000, guid: 5b5595984d749a841b903b058b715ad7, type: 3}
 --- !u!4 &2357477596902174497 stripped
 Transform:
@@ -230,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e5a6d547db0fdc4cba75dfd02880198, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 100
+  currentHealth: 50
   isMaxHealthOnStart: 0
 --- !u!114 &3940193899637129845
 MonoBehaviour:
@@ -261,3 +264,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoiseMaker
   noiseVolume: 0
   noiseDecayPerSecond: 2.5
+--- !u!114 &-2289538241637892064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3169586147453826459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1fde95697bc35f4fb95e2a4b8e89650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerupManager
