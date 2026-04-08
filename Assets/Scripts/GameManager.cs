@@ -78,7 +78,15 @@ public class GameManager : MonoBehaviour
     }
 
     private void SpawnPlayer() 
-    { 
-        SpawnPlayer(Vector3.zero, Quaternion.identity);
+    {
+        if (TankSpawnPoint.tankSpawnPoints != null && TankSpawnPoint.tankSpawnPoints.Count > 0)
+        {
+            TankSpawnPoint spawnPoint = TankSpawnPoint.tankSpawnPoints[Random.Range(0, TankSpawnPoint.tankSpawnPoints.Count)];
+            SpawnPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation);            
+        }
+        else
+        {
+            SpawnPlayer(Vector3.zero, Quaternion.identity);
+        }
     }
 }
