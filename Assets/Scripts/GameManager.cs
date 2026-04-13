@@ -12,6 +12,17 @@ public class GameManager : MonoBehaviour
     public List<Pawn> pawns;
     [Header("Important Game Objects")]
     public FollowCamera followCamera;
+    public MapGenerator mapGenerator;
+    [Header("Game State Objects")]
+    public GameObject titleScreen;
+    public GameObject mainMenuScreen;
+    public GameObject creditsScreen;
+    public GameObject settingsScreen;
+    public GameObject gameplayScreen;
+    public GameObject gameOverScreen;
+    [Header("GameData")]
+    public int livesAtStart;
+    public int numberOfPlayers;
 
     // Awake runs before Start runs
     void Awake()
@@ -30,7 +41,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        InitializeGame();
+
     }
 
     // Update is called once per frame
@@ -39,10 +50,55 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void DeactivateAllGameScreens()
+    {
+        titleScreen.SetActive(false);
+        mainMenuScreen.SetActive(false);
+        creditsScreen.SetActive(false);
+        settingsScreen.SetActive(false);
+        gameplayScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
+}
+
+    public void ActivateTitleScreen()
+    {
+        DeactivateAllGameScreens();
+        titleScreen.SetActive(true);
+    }
+    public void ActivateMainMenuScreen()
+    {
+        DeactivateAllGameScreens();
+        mainMenuScreen.SetActive(true);
+    }
+    public void ActivateCreditsScreen()
+    {
+        DeactivateAllGameScreens();
+        creditsScreen.SetActive(true);
+    }
+    public void ActivateSettingsScreen()
+    {
+        DeactivateAllGameScreens();
+        settingsScreen.SetActive(true);
+    }
+    public void ActivateGameOverScreen()
+    {
+        DeactivateAllGameScreens();
+        gameOverScreen.SetActive(true);
+    }
+    public void ActivateGameplayScreen()
+    {
+        DeactivateAllGameScreens();
+        gameplayScreen.SetActive(true);
+
+        InitializeGame();
+    }
+
     private void InitializeGame()
     {
         //TODO: Do what happens at the start of a game
-        //TODO: Generate a random map
+
+        //Generate a random map
+        mapGenerator.GenerateMap();
 
         // Spawn the player(s)
         SpawnPlayer();
