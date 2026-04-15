@@ -14,9 +14,12 @@ public class FollowCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Move to "offset" units above the target
-        transform.position = target.transform.position + new Vector3(0, offset, 0);
-        // Look at the target
-        transform.LookAt(target.position);        
+        if (target != null)
+        {            
+            // Move to "offset" units above the target
+            transform.position = target.transform.position + new Vector3(0, offset, 0);
+            // Look at the target
+            transform.LookAt(target.position);
+        }
     }
 }

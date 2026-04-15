@@ -5,8 +5,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [Header("Prefabs")]
-    public Pawn playerPawn;
-    public Controller playerController;
+    public Pawn playerPawnPrefab;
+    public PlayerController playerControllerPrefab;
+    public UIPlayerUI playerUIprefab;
     [Header("Important Lists")]
     public List<PlayerController> players;
     public List<Pawn> pawns;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     [Header("GameData")]
     public int livesAtStart;
     public int numberOfPlayers;
+    public int maxPlayers;
 
     // Awake runs before Start runs
     void Awake()
@@ -36,12 +38,23 @@ public class GameManager : MonoBehaviour
             // So destroy this new one (death to the usurper!)
             Destroy(gameObject);
         }
+
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        ActivateTitleScreen();
 
+        // Initialize our player list to the max number of players
+        // Step 1: Create the list
+        players = new List<PlayerController>(maxPlayers);
+        // Step 2: Add "nothing" to the list enough times to make the list the right size
+        for (int i = 0; i < maxPlayers; i++)
+        {
+            players.Add(null);
+        }
     }
 
     // Update is called once per frame
@@ -101,7 +114,9 @@ public class GameManager : MonoBehaviour
         mapGenerator.GenerateMap();
 
         // Spawn the player(s)
-        SpawnPlayer();
+        SpawnPlayer(0);
+        SpawnPlayer(1);
+        SpawnPlayer(2);
 
         //TODO: Spawn AIs and get them the data they need to run
         //TODO: Set the players score to zero
@@ -120,29 +135,53 @@ public class GameManager : MonoBehaviour
         // TODO: Do what happens when the game ends
     }
 
-    private void SpawnPlayer(Vector3 position, Quaternion rotation)
+
+
+
+    private void SpawnPlayer(Vector3 position, Quaternion rotation, int playerNumber)
     {
         // Spawn the player
-        Pawn newPlayerPawn = Instantiate<Pawn>(playerPawn, position, rotation) as Pawn;
-        Controller newPlayerController = Instantiate<Controller>(playerController, Vector3.zero, Quaternion.identity);
+        Pawn newPlayerPawn = Instantiate<Pawn>(playerPawnPrefab, position, rotation) as Pawn;
+        PlayerController newPlayerController = Instantiate<PlayerController>(playerControllerPrefab, Vector3.zero, Quaternion.identity);
 
         // Cause the player to possess the player pawn
         newPlayerController.Possess(newPlayerPawn);
 
+        // TODO: When we get to multiplayer, spawn a follow camera for them, then set this camera to follow them
         // Set follow camera to follow them
         SetFollowCamera(newPlayerPawn.transform);
+
+        // Spawn their Canvas UI
+        UIPlayerUI tempPlayerUI = Instantiate<UIPlayerUI>(playerUIprefab);
+
+        // TODO: Attach it to the camera -- when we get to multiplayer, this needs to be the spawned camera, NOT the main camera
+        Canvas tempCanvas = tempPlayerUI.GetComponent<Canvas>();
+        tempCanvas.worldCamera = Camera.main;
+
+        // Set the player number abd okater controller
+        tempPlayerUI.UpdatePlayerNumber(playerNumber);
+        tempPlayerUI.playerController = newPlayerController;
+
+        // Put us in the list of players
+        players[playerNumber] = newPlayerController;
+
     }
 
-    private void SpawnPlayer() 
+    private void SpawnPlayer(int playerNumber) 
     {
         if (TankSpawnPoint.tankSpawnPoints != null && TankSpawnPoint.tankSpawnPoints.Count > 0)
         {
             TankSpawnPoint spawnPoint = TankSpawnPoint.tankSpawnPoints[Random.Range(0, TankSpawnPoint.tankSpawnPoints.Count)];
-            SpawnPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation);            
+            SpawnPlayer(spawnPoint.transform.position, spawnPoint.transform.rotation, playerNumber);            
         }
         else
         {
-            SpawnPlayer(Vector3.zero, Quaternion.identity);
+            SpawnPlayer(Vector3.zero, Quaternion.identity, playerNumber);
         }
+    }
+
+    private void SpawnPlayer ()
+    {
+        SpawnPlayer(0);
     }
 }

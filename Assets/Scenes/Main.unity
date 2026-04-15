@@ -3142,9 +3142,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507434183b9ff844183803fd39fa2889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  playerPawn: {fileID: 1026914415785273838, guid: ab47cf24820f71642b22b4091a86fd3a, type: 3}
-  playerController: {fileID: 5944723378998984780, guid: 0a832a283c2b0a34ab47a4b5a48739ec, type: 3}
-  players: []
+  playerPawnPrefab: {fileID: 1026914415785273838, guid: ab47cf24820f71642b22b4091a86fd3a, type: 3}
+  playerControllerPrefab: {fileID: 5944723378998984780, guid: 0a832a283c2b0a34ab47a4b5a48739ec, type: 3}
+  playerUIprefab: {fileID: 6593118073960321185, guid: bc49ec2c01cc66c47bb661754d17c63a, type: 3}
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   pawns: []
   followCamera: {fileID: 961739754}
   mapGenerator: {fileID: 531463499}
@@ -3156,6 +3166,7 @@ MonoBehaviour:
   gameOverScreen: {fileID: 858730000}
   livesAtStart: 0
   numberOfPlayers: 1
+  maxPlayers: 8
 --- !u!4 &654020319
 Transform:
   m_ObjectHideFlags: 0
@@ -6644,7 +6655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1848622935
 Transform:
   m_ObjectHideFlags: 0
