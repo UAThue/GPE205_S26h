@@ -3145,16 +3145,7 @@ MonoBehaviour:
   playerPawnPrefab: {fileID: 1026914415785273838, guid: ab47cf24820f71642b22b4091a86fd3a, type: 3}
   playerControllerPrefab: {fileID: 5944723378998984780, guid: 0a832a283c2b0a34ab47a4b5a48739ec, type: 3}
   playerUIprefab: {fileID: 6593118073960321185, guid: bc49ec2c01cc66c47bb661754d17c63a, type: 3}
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  players: []
   pawns: []
   followCamera: {fileID: 961739754}
   mapGenerator: {fileID: 531463499}
